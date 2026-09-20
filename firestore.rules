@@ -1,0 +1,47 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // [1] SEERA DATABASE BARSIISOTA (users)
+    match /users/{phoneNumber} {
+      // Password fi odeeffannoo barsiisaa namni kallattiin brawuzariin akka hin dubbisne dhorkuudha
+      allow read, list: if false;
+      allow write: if request.auth != null;
+    }
+    
+    // [2] SEERA DATABASE BARATTOOTAA (students)
+    // Barsiisni tokko barataa daree isaa qofa keessa jiru qofa akka argu taasisa
+    match /students/{studentId} {
+      allow read, list: if request.auth != null && 
+        get(/databases/$(database)/documents/users/$(request.auth.token.phone_number)).data.classId == resource.data.classId;
+      
+      // Kudhaama uumuu fi haqisuu maaneejara qofaf (ykn barsiisadhaaf yoo heyyamuun barbaachise)
+      allow write: if request.auth != null;
+    }
+    
+    // [3] SEERA GALMEESSA HIRMAANNAA (attendance)
+    // Barsiisni hirmaannaa daree isaa qofa galmeessuu fi argu danda'a
+    match /attendance/{attendanceId} {
+      allow read: if request.auth != null && 
+        get(/databases/$(database)/documents/users/$(request.auth.token.phone_number)).data.classId == resource.data.classId;
+      allow write: if request.auth != null && 
+        get(/databases/$(database)/documents/users/$(request.auth.token.phone_number)).data.classId == request.resource.data.classId;
+    }
+
+    // [4] SEERA HIRMAANNAA BARSIISOTA (teacher_attendance)
+    match /teacher_attendance/{attendanceId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // [5] SEERA BEEKSISAA (notifications)
+    match /notifications/{notificationId} {
+      allow read, write: if request.auth != null;
+    }
+
+    // [6] SEERA KAFFALTII BARNOOTAA (tuition_payments)
+    match /tuition_payments/{paymentId} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

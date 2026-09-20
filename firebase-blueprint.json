@@ -1,0 +1,69 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User account information for Markaz Tajul Waqar portal",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "User ID or phone number" },
+        "email": { "type": "string", "description": "User email address" },
+        "displayName": { "type": "string", "description": "User display name" },
+        "photoURL": { "type": "string", "description": "User avatar photo URL" },
+        "createdAt": { "type": "string", "description": "Account creation timestamp" },
+        "role": { "type": "string", "description": "User role (admin, teacher)" },
+        "phoneNumber": { "type": "string", "description": "Teacher phone number" },
+        "password": { "type": "string", "description": "Markaz assigned password" },
+        "teacherCode": { "type": "string", "description": "Teacher code assigned by Markaz" }
+      },
+      "required": ["role"]
+    },
+    "TeacherAttendance": {
+      "title": "Teacher Attendance Log",
+      "description": "GPS Geofence and QR code check-in logs for teachers",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "teacherId": { "type": "string" },
+        "teacherName": { "type": "string" },
+        "checkInTime": { "type": "string" },
+        "checkOutTime": { "type": "string" },
+        "lat": { "type": "number" },
+        "lng": { "type": "number" },
+        "geofenceVerified": { "type": "boolean" },
+        "qrVerified": { "type": "boolean" },
+        "status": { "type": "string" },
+        "date": { "type": "string" }
+      },
+      "required": ["teacherId", "checkInTime", "date"]
+    },
+    "Notification": {
+      "title": "Notification Alert Log",
+      "description": "SMS and push notifications for student/teacher absences",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "recipient": { "type": "string" },
+        "recipientRole": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string" },
+        "sentAt": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["recipient", "message", "sentAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Stores user profiles"
+    },
+    "/teacher_attendance/{attendanceId}": {
+      "schema": "TeacherAttendance",
+      "description": "Stores teacher attendance GPS logs"
+    },
+    "/notifications/{notificationId}": {
+      "schema": "Notification",
+      "description": "Stores notification alert logs"
+    }
+  }
+}

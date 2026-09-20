@@ -1,0 +1,6 @@
+{
+  "name": "مركز تاج الوقار",
+  "description": "System for tracking student attendance & recitation, teacher GPS geofencing & QR check-ins, automated SMS notifications, and admin analytics.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

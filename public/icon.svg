@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Circular Path for Top Arabic Text -->
+    <path id="topArcPath" d="M 76,256 A 180,180 0 0,1 436,256" fill="none" />
+    <!-- Circular Path for Subtitle Arabic Text -->
+    <path id="subArcPath" d="M 126,256 A 130,130 0 0,1 386,256" fill="none" />
+    <!-- Circular Path for Bottom Latin Text -->
+    <path id="bottomArcPath" d="M 86,256 A 170,170 0 0,0 426,256" fill="none" />
+    
+    <!-- Gradients -->
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38B6FF" />
+      <stop offset="50%" stop-color="#2298EE" />
+      <stop offset="100%" stop-color="#1B88DE" />
+    </linearGradient>
+
+    <linearGradient id="goldGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#DAA520" />
+      <stop offset="50%" stop-color="#FFD700" />
+      <stop offset="100%" stop-color="#FFA500" />
+    </linearGradient>
+
+    <linearGradient id="sunGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#FFA000" />
+      <stop offset="100%" stop-color="#FFD54F" />
+    </linearGradient>
+
+    <linearGradient id="domeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#153675" />
+      <stop offset="50%" stop-color="#2A62C8" />
+      <stop offset="100%" stop-color="#153675" />
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Black Rim -->
+  <circle cx="256" cy="256" r="252" fill="#000000" />
+  
+  <!-- Outer Blue Ring -->
+  <circle cx="256" cy="256" r="242" fill="url(#skyGrad)" />
+  
+  <!-- Outer Inner Black Border -->
+  <circle cx="256" cy="256" r="218" fill="none" stroke="#000000" stroke-width="5" />
+  
+  <!-- Center Main Disc -->
+  <circle cx="256" cy="256" r="214" fill="url(#skyGrad)" />
+
+  <!-- Top Arabic Text along curve: مركز تاج الوقار لعلوم القرآن والآثار -->
+  <text fill="#ffffff" font-family="'Cairo', 'Amiri', 'Traditional Arabic', system-ui, sans-serif" font-weight="900" font-size="28" letter-spacing="1">
+    <textPath href="#topArcPath" startOffset="50%" text-anchor="middle">
+      مركز تاج الوقار لعلوم القرآن والآثار
+    </textPath>
+  </text>
+
+  <!-- Subtitle Arabic Text along curve: ورتل القرآن ترتيلا -->
+  <text fill="#ffffff" font-family="'Cairo', 'Amiri', 'Traditional Arabic', system-ui, sans-serif" font-weight="800" font-size="20" opacity="0.95">
+    <textPath href="#subArcPath" startOffset="50%" text-anchor="middle">
+      ورتل القرآن ترتيلا
+    </textPath>
+  </text>
+
+  <!-- Golden 5-pointed stars on Left and Right -->
+  <!-- Left Star -->
+  <polygon points="90,268 94,256 84,248 97,248 101,236 105,248 118,248 108,256 112,268 101,260" fill="#FFD700" stroke="#DAA520" stroke-width="1.5" />
+  <!-- Right Star -->
+  <polygon points="410,268 414,256 404,248 417,248 421,236 425,248 438,248 428,256 432,268 421,260" fill="#FFD700" stroke="#DAA520" stroke-width="1.5" />
+
+  <!-- Dome Silhouette and Crescent -->
+  <g transform="translate(256, 155)">
+    <!-- Crescent & Star -->
+    <path d="M 0,-18 A 12,12 0 1,1 -10,-4 A 9,9 0 1,0 0,-18 Z" fill="#2ECC71" />
+    <polygon points="5,-10 6,-7 9,-7 7,-5 8,-2 5,-4 2,-2 3,-5 1,-7 4,-7" fill="#ffffff" />
+  </g>
+
+  <!-- Dome Outline Arch (Blue Gradient) -->
+  <path d="M 166,275 C 160,210 200,165 256,165 C 312,165 352,210 346,275 C 330,225 300,185 256,185 C 212,185 182,225 166,275 Z" fill="url(#domeGrad)" />
+
+  <!-- Rising Sun Behind Quran with Radiant Rays -->
+  <!-- Sun Rays -->
+  <g stroke="#FFD54F" stroke-width="3" stroke-linecap="round" opacity="0.9">
+    <line x1="256" y1="230" x2="256" y2="202" />
+    <line x1="242" y1="232" x2="232" y2="206" />
+    <line x1="270" y1="232" x2="280" y2="206" />
+    <line x1="228" y1="236" x2="210" y2="214" />
+    <line x1="284" y1="236" x2="302" y2="214" />
+    <line x1="216" y1="244" x2="192" y2="226" />
+    <line x1="296" y1="244" x2="320" y2="226" />
+    <line x1="206" y1="254" x2="180" y2="242" />
+    <line x1="306" y1="254" x2="332" y2="242" />
+  </g>
+
+  <!-- Sun Half Circle -->
+  <path d="M 212,270 A 44,44 0 0,1 300,270 Z" fill="url(#sunGrad)" />
+
+  <!-- Open Holy Quran (Mushaf) -->
+  <g id="holyQuran">
+    <!-- Blue Rehal (Stand) Shadow and Layer -->
+    <path d="M 160,275 L 256,335 L 352,275 L 340,290 L 256,345 L 172,290 Z" fill="#1C5FB8" />
+    <path d="M 152,282 L 256,348 L 360,282 L 350,296 L 256,358 L 162,296 Z" fill="#0E3D7B" />
+    
+    <!-- Open Book Pages (Gold/Orange gradient) -->
+    <!-- Left Page -->
+    <path d="M 256,305 C 220,295 190,265 174,270 C 190,295 220,320 256,330 Z" fill="url(#goldGrad)" stroke="#B8860B" stroke-width="1.5" />
+    <!-- Right Page -->
+    <path d="M 256,305 C 292,295 322,265 338,270 C 322,295 292,320 256,330 Z" fill="url(#goldGrad)" stroke="#B8860B" stroke-width="1.5" />
+
+    <!-- Golden Inner Page Lines -->
+    <path d="M 256,308 C 225,298 198,274 182,276 C 196,298 225,318 256,326 Z" fill="#FFF8E7" opacity="0.85" />
+    <path d="M 256,308 C 287,298 314,274 330,276 C 316,298 287,318 256,326 Z" fill="#FFF8E7" opacity="0.85" />
+
+    <!-- Center Binding -->
+    <line x1="256" y1="305" x2="256" y2="330" stroke="#8B6508" stroke-width="2" />
+  </g>
+
+  <!-- Bottom Horizontal Decorative Accent Arc -->
+  <path d="M 180,362 C 220,352 292,352 332,362 C 292,370 220,370 180,362 Z" fill="url(#goldGrad)" />
+  <path d="M 195,372 C 230,364 282,364 317,372" stroke="#153675" stroke-width="2" fill="none" />
+
+  <!-- Bottom Latin Text along curve: Al-markazu tajul waqaar -->
+  <text fill="#ffffff" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="23" letter-spacing="1.5">
+    <textPath href="#bottomArcPath" startOffset="50%" text-anchor="middle">
+      Al-markazu tajul waqaar
+    </textPath>
+  </text>
+</svg>
